@@ -1,0 +1,35 @@
+autoinstall:
+  version: 1
+  locale: de_DE
+  keyboard:
+    layout: de
+    variant: ''
+  network:
+    network:
+      version: 2
+      ethernets:
+        enp3s0:
+          dhcp4: true
+  identity:
+    hostname: ubuntu-desktop
+    username: cttest
+    password: cttest
+  keyboard:
+    layout: de
+    variant: ''
+  ssh:
+    install-server: true
+    allow-pw: true
+  apt:
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches: [amd64, i386]
+      uri: http://de.archive.ubuntu.com/ubuntu/
+  packages:
+    - btop
+  #snaps:
+  #  - name: snap-store
+  #    channel: latest/stable
+  #    classic: true
+  timezone: Europe/Berlin
