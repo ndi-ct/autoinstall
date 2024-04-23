@@ -14,9 +14,6 @@ autoinstall:
     hostname: ubuntu-desktop
     username: cttest
     password: cttest
-  keyboard:
-    layout: de
-    variant: ''
   ssh:
     install-server: true
     allow-pw: true
