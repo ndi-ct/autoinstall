@@ -17,12 +17,6 @@ autoinstall:
   ssh:
     install-server: true
     allow-pw: true
-  apt:
-    geoip: true
-    preserve_sources_list: false
-    primary:
-    - arches: [amd64, i386]
-      uri: http://de.archive.ubuntu.com/ubuntu/
   packages:
     - btop
   #snaps:
