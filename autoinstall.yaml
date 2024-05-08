@@ -1,26 +1,37 @@
+#cloud-config
 autoinstall:
   version: 1
-  locale: de_DE
-  keyboard:
-    layout: de
+  locale: de_DE #Sprache
+  keyboard: #Tastaturbelegung
+    layout: de 
     variant: ''
-  network:
+  network: #Netzwerkkonfiguration
     network:
       version: 2
       ethernets:
         enp3s0:
           dhcp4: true
-  identity:
+  identity: #Hostname, Benutzername und Passwort
     hostname: ubuntu-desktop
     username: cttest
-    password: cttest
-  ssh:
+    password: $crypted_pass #
+  ssh: #SSH Konfiguration. Hier wird der SSH-Server installiert und Login mit Passwort erlaubt.
     install-server: true
     allow-pw: true
-  packages:
+  storage: #Partitionierung: Achtung, hier wird die gesamte Festplatte genutzt.
+    layout:
+      name: lvm    
+  #apt: #Paketquellen
+  #  geoip: true
+  #  preserve_sources_list: false
+  #  primary:
+  #  - arches: [amd64, i386]
+  #    uri: http://de.archive.ubuntu.com/ubuntu/
+  packages: # zu installierende Debian-Pakete
     - btop
-  #snaps:
-  #  - name: snap-store
-  #    channel: latest/stable
-  #    classic: true
-  timezone: Europe/Berlin
+    - librefoffice
+  snaps: #zu installierende Snap-Pakete
+    - name: multipass
+      channel: latest/stable
+      classic: true
+  timezone: Europe/Berlin #Zeitzone
